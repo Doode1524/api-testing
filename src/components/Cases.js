@@ -5,23 +5,58 @@ const Cases = () => {
 
   useEffect(() => {
     getCases();
-  }, [cases]);
+  }, []);
 
   const getCases = () => {
     fetch("https://covid-api.mmediagroup.fr/v1/cases")
       .then((res) => res.json())
       .then((data) => {
-        let newCases = [];
-        console.log(Object.keys(data), 'keys')
-        Object.entries(data).map((d) => newCases.push(d));
-        setCases(newCases);
-        console.log(cases, "cases");
-        console.log(data);
-        debugger;
+        let countries = Object.entries(data).map((country) => ({
+          [country[0]]: country[1].All,
+        }));
+        setCases(countries);
+        // let newCases = [];
+        // console.log(Object.keys(data), 'keys')
+        // let arrVals = Object.values(data)
+        // console.log(arrVals, 'values')
+        // Object.entries(data).map((d) => newCases.push(d));
+        // setCases(arrVals);
+        // console.log(data);
       });
   };
+  console.log(cases);
 
-  return <div>Hello Cases</div>;
+  if (cases.length === 0) {
+    return <div>Loading</div>;
+  }
+
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Confirmed</th>
+            <th>Deaths</th>
+          </tr>
+        </thead>
+        <tbody>
+        {cases.map((data) => (
+          <tr>
+            <td>{Object.keys(data)[0]}</td>
+            <td>{data[Object.keys(data)].confirmed}</td>
+            <td>{data[Object.keys(data)].deaths}</td>
+          </tr>
+        ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default Cases;
+
+//  countries.map(data => {
+//   console.log(Object.keys(data)[0])
+//   return data[Object.keys(data)]
+// })
