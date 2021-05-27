@@ -47,6 +47,8 @@ const CasesList = (props) => {
             <StyledTableCell align="right">Recovered</StyledTableCell>
             <StyledTableCell align="right">Deaths</StyledTableCell>
             <StyledTableCell align="right">Population</StyledTableCell>
+            <StyledTableCell align="right">Cases/1Mil</StyledTableCell>
+            <StyledTableCell align="right">Deaths/1Mil</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -66,6 +68,12 @@ const CasesList = (props) => {
               </StyledTableCell>
               <StyledTableCell align="right">
                 {data[Object.keys(data)].population}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {Math.round(data[Object.keys(data)].confirmed / data[Object.keys(data)].population * 1000000)}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {Math.round(data[Object.keys(data)].deaths / data[Object.keys(data)].population * 1000000)}
               </StyledTableCell>
             </StyledTableRow>
           ))}
