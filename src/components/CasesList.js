@@ -6,15 +6,15 @@ const CasesList = (props) => {
     <div>
       <table>
         <thead>
-          <tr>
-            <th>Name</th>
+          <tr style={{backgroundColor: "#B2B2B2"}}>
+            <th>Country</th>
             <th>Confirmed</th>
             <th>Deaths</th>
           </tr>
         </thead>
         <tbody>
           {props.cases.map((data) => (
-            <tr>
+            <tr style={{backgroundColor: "#E9E3E6"}}>
               <td key={Object.keys(data)[0]}>{Object.keys(data)[0]}</td>
               <td>{data[Object.keys(data)].confirmed}</td>
               <td>{data[Object.keys(data)].deaths}</td>
