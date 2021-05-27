@@ -15,16 +15,9 @@ const Cases = () => {
           [country[0]]: country[1].All,
         }));
         setCases(countries);
-        // let newCases = [];
-        // console.log(Object.keys(data), 'keys')
-        // let arrVals = Object.values(data)
-        // console.log(arrVals, 'values')
-        // Object.entries(data).map((d) => newCases.push(d));
-        // setCases(arrVals);
-        // console.log(data);
       });
   };
-  console.log(cases);
+  // console.log(cases);
 
   if (cases.length === 0) {
     return <div>Loading</div>;
@@ -41,13 +34,13 @@ const Cases = () => {
           </tr>
         </thead>
         <tbody>
-        {cases.map((data) => (
-          <tr>
-            <td>{Object.keys(data)[0]}</td>
-            <td>{data[Object.keys(data)].confirmed}</td>
-            <td>{data[Object.keys(data)].deaths}</td>
-          </tr>
-        ))}
+          {cases.map((data) => (
+            <tr>
+              <td key={Object.keys(data)[0]}>{Object.keys(data)[0]}</td>
+              <td>{data[Object.keys(data)].confirmed}</td>
+              <td>{data[Object.keys(data)].deaths}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
@@ -60,3 +53,11 @@ export default Cases;
 //   console.log(Object.keys(data)[0])
 //   return data[Object.keys(data)]
 // })
+
+// let newCases = [];
+// console.log(Object.keys(data), 'keys')
+// let arrVals = Object.values(data)
+// console.log(arrVals, 'values')
+// Object.entries(data).map((d) => newCases.push(d));
+// setCases(arrVals);
+// console.log(data);
