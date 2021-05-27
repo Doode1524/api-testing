@@ -33,6 +33,15 @@ const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
+  continentRed: {
+    color: "red",
+  },
+  continentBlue: {
+    color: "blue",
+  },
+  continentGreen: {
+    color: "green",
+  },
 });
 
 const CasesList = (props) => {
@@ -43,37 +52,67 @@ const CasesList = (props) => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Country</StyledTableCell>
-            <StyledTableCell align="right">Confirmed</StyledTableCell>
-            <StyledTableCell align="right">Recovered</StyledTableCell>
-            <StyledTableCell align="right">Deaths</StyledTableCell>
-            <StyledTableCell align="right">Population</StyledTableCell>
-            <StyledTableCell align="right">Cases/1Mil</StyledTableCell>
-            <StyledTableCell align="right">Deaths/1Mil</StyledTableCell>
+            <StyledTableCell>Confirmed</StyledTableCell>
+            <StyledTableCell>Recovered</StyledTableCell>
+            <StyledTableCell>Deaths</StyledTableCell>
+            <StyledTableCell>Population</StyledTableCell>
+            <StyledTableCell>Cases/1Mil</StyledTableCell>
+            <StyledTableCell>Deaths/1Mil</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {props.cases.map((data) => (
             <StyledTableRow key={Object.keys(data)[0]}>
-              <StyledTableCell component="th" scope="row" style={{fontSize: 15, fontWeight: 500}}>
+              <StyledTableCell
+                component="th"
+                className={
+                  data[Object.keys(data)].continent === "North America"
+                    ? classes.continentRed
+                    :
+                  data[Object.keys(data)].continent === "Central America"
+                    ? classes.continentRed
+                    : data[Object.keys(data)].continent === "South America"
+                    ? classes.continentBlue
+                    : data[Object.keys(data)].continent === "Europe"
+                    ? classes.continentGreen
+                    : data[Object.keys(data)].continent === "Southern Europe"
+                    ? classes.continentGreen
+                    : data[Object.keys(data)].continent === "Western Europe"
+                    ? classes.continentGreen
+                    : data[Object.keys(data)].continent === "Eastern Europe"
+                    ? classes.continentGreen
+                    : null
+                }
+                scope="row"
+                style={{ fontSize: 15, fontWeight: 500 }}
+              >
                 {Object.keys(data)[0]}
               </StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell align="center">
                 {data[Object.keys(data)].confirmed}
               </StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell align="center">
                 {data[Object.keys(data)].recovered}
               </StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell align="center">
                 {data[Object.keys(data)].deaths}
               </StyledTableCell>
-              <StyledTableCell align="right">
+              <StyledTableCell align="center">
                 {data[Object.keys(data)].population}
               </StyledTableCell>
-              <StyledTableCell align="right">
-                {Math.round(data[Object.keys(data)].confirmed / data[Object.keys(data)].population * 1000000)}
+              <StyledTableCell align="center">
+                {Math.round(
+                  (data[Object.keys(data)].confirmed /
+                    data[Object.keys(data)].population) *
+                    1000000
+                )}
               </StyledTableCell>
-              <StyledTableCell align="right">
-                {Math.round(data[Object.keys(data)].deaths / data[Object.keys(data)].population * 1000000)}
+              <StyledTableCell align="center">
+                {Math.round(
+                  (data[Object.keys(data)].deaths /
+                    data[Object.keys(data)].population) *
+                    1000000
+                )}
               </StyledTableCell>
             </StyledTableRow>
           ))}
