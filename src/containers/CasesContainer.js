@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CasesList from '../components/CasesList'
 
 const Cases = () => {
   const [cases, setCases] = useState([]);
@@ -25,24 +26,7 @@ const Cases = () => {
 
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Confirmed</th>
-            <th>Deaths</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cases.map((data) => (
-            <tr>
-              <td key={Object.keys(data)[0]}>{Object.keys(data)[0]}</td>
-              <td>{data[Object.keys(data)].confirmed}</td>
-              <td>{data[Object.keys(data)].deaths}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <CasesList cases={cases} />
     </div>
   );
 };
