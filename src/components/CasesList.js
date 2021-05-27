@@ -40,10 +40,11 @@ const CasesList = (props) => {
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="sticky table" stickyHeader>
-        <TableHead stickyHeader>
+        <TableHead>
           <TableRow>
             <StyledTableCell>Country</StyledTableCell>
             <StyledTableCell align="right">Confirmed</StyledTableCell>
+            <StyledTableCell align="right">Recovered</StyledTableCell>
             <StyledTableCell align="right">Deaths</StyledTableCell>
             <StyledTableCell align="right">Population</StyledTableCell>
           </TableRow>
@@ -51,11 +52,14 @@ const CasesList = (props) => {
         <TableBody>
           {props.cases.map((data) => (
             <StyledTableRow key={Object.keys(data)[0]}>
-              <StyledTableCell component="th" scope="row">
+              <StyledTableCell component="th" scope="row" style={{fontSize: 15, fontWeight: 500}}>
                 {Object.keys(data)[0]}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {data[Object.keys(data)].confirmed}
+              </StyledTableCell>
+              <StyledTableCell align="right">
+                {data[Object.keys(data)].recovered}
               </StyledTableCell>
               <StyledTableCell align="right">
                 {data[Object.keys(data)].deaths}
