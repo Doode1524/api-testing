@@ -10,7 +10,7 @@ export const getCases = () => async (dispatch) => {
 };
 
 export const getVaccines = () => async (dispatch) => {
-  const response = await axios.get("https://covid-api.mmediagroup.fr/v1/cases");
+  const response = await axios.get("https://covid-api.mmediagroup.fr/v1/vaccines");
   let countries = Object.entries(response.data).map((country) => ({
     [country[0]]: country[1].All,
   }));

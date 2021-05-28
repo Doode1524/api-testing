@@ -7,7 +7,7 @@ export default (state = INITIAL_STATE, action) => {
     case GET_CASES:
       return { ...state, cases: action.payload };
     case GET_VACCINES:
-      return { ...state, cases: action.payload };
+      return { ...state, vaccines: action.payload };
     default:
       return state;
   }
