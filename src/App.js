@@ -1,7 +1,8 @@
-import { Router, Route, Switch } from 'react-router-dom'
-import CasesContainer from './containers/CasesContainer'
-import './App.css';
-import Header from './components/Header'
+import { Router, Route, Switch } from "react-router-dom";
+import history from "./history";
+import CasesContainer from "./containers/CasesContainer";
+import "./App.css";
+import Header from "./components/Header";
 
 function App() {
   return (

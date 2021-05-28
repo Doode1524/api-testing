@@ -6,9 +6,7 @@ export const getCases = () => async (dispatch) => {
   let countries = Object.entries(response.data).map((country) => ({
     [country[0]]: country[1].All,
   }));
-  dispatch({type: GET_CASES, payload: countries})
-
-//   console.log(countries)
+  dispatch({ type: GET_CASES, payload: countries });
 };
 
 // const getCases = () => {

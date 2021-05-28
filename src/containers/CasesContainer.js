@@ -1,30 +1,18 @@
 import React, { useState, useEffect } from "react";
-import CasesList from '../components/CasesList'
-import { connect, useDispatch } from 'react-redux'
-import { getCases } from '../actions'
+import CasesList from "../components/CasesList";
+import { connect, useDispatch } from "react-redux";
+import { getCases } from "../actions";
 
 const Cases = (props) => {
-  const [cases, setCases] = useState([]);
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatchGetCases();
   }, []);
 
   const dispatchGetCases = () => {
-    dispatch(getCases())
-
-    // fetch("https://covid-api.mmediagroup.fr/v1/cases")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     let countries = Object.entries(data).map((country) => ({
-    //       [country[0]]: country[1].All,
-    //     }));
-    //     setCases(countries);
-    //   });
+    dispatch(getCases());
   };
-  // console.log(cases);
 
   if (props.cases.length === 0) {
     return <div>Loading</div>;
@@ -37,11 +25,11 @@ const Cases = (props) => {
   );
 };
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
   return {
-    cases: state.cases
-  }
-}
+    cases: state.cases,
+  };
+};
 
 export default connect(mapStateToProps, null)(Cases);
 
@@ -57,3 +45,14 @@ export default connect(mapStateToProps, null)(Cases);
 // Object.entries(data).map((d) => newCases.push(d));
 // setCases(arrVals);
 // console.log(data);
+
+// console.log(cases);
+
+// fetch("https://covid-api.mmediagroup.fr/v1/cases")
+//   .then((res) => res.json())
+//   .then((data) => {
+//     let countries = Object.entries(data).map((country) => ({
+//       [country[0]]: country[1].All,
+//     }));
+//     setCases(countries);
+//   });
