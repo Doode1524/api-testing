@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CasesList from '../components/CasesList'
+import { connect } from 'react-redux'
 
 const Cases = () => {
   const [cases, setCases] = useState([]);
@@ -31,7 +32,11 @@ const Cases = () => {
   );
 };
 
-export default Cases;
+const mapStateToProps = (state) =>{
+
+}
+
+export default connect(mapStateToProps, null)(Cases);
 
 //  countries.map(data => {
 //   console.log(Object.keys(data)[0])
