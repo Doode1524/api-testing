@@ -1,10 +1,15 @@
-import { GET_CASES } from '../actions/types'
+import { GET_CASES } from "../actions/types";
 
-const INITIAL_STATE = {cases: []}
+const INITIAL_STATE = { cases: [] };
 
-export default () => {
-
-}
+export default (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case GET_CASES:
+      return { ...state, cases: action.payload };
+    default:
+      return state;
+  }
+};
 
 // const getCases = () => {
 //     fetch("https://covid-api.mmediagroup.fr/v1/cases")

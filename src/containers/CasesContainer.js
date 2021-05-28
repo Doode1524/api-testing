@@ -3,7 +3,7 @@ import CasesList from '../components/CasesList'
 import { connect, useDispatch } from 'react-redux'
 import { getCases } from '../actions'
 
-const Cases = () => {
+const Cases = (props) => {
   const [cases, setCases] = useState([]);
 
   const dispatch = useDispatch()
@@ -26,19 +26,21 @@ const Cases = () => {
   };
   // console.log(cases);
 
-  if (cases.length === 0) {
+  if (props.cases.length === 0) {
     return <div>Loading</div>;
   }
 
   return (
     <div>
-      <CasesList cases={cases} />
+      <CasesList cases={props.cases} />
     </div>
   );
 };
 
 const mapStateToProps = (state) =>{
-
+  return {
+    cases: state.cases
+  }
 }
 
 export default connect(mapStateToProps, null)(Cases);

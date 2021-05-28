@@ -8,7 +8,7 @@ export const getCases = () => async (dispatch) => {
   }));
   dispatch({type: GET_CASES, payload: countries})
 
-  console.log(countries)
+//   console.log(countries)
 };
 
 // const getCases = () => {
