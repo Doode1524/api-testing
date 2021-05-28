@@ -6,11 +6,12 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    marginBottom: 50
+    marginBottom: 50,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -19,8 +20,14 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar: {
-      backgroundColor: "#736F72"
-  }
+    backgroundColor: "#736F72",
+  },
+  link: {
+    color: "white",
+    fontSize: 17,
+    fontWeight: 500,
+    marginLeft: 40,
+  },
 }));
 
 const Header = () => {
@@ -37,9 +44,23 @@ const Header = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h5" className={classes.title}>
             Covid Tracker
           </Typography>
+          <Button
+            component={Link}
+            to="/"
+            className={classes.link}
+          >
+            Cases
+          </Button>
+          <Button
+            component={Link}
+            to="/vaccines"
+            className={classes.link}
+          >
+            Vaccines
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
