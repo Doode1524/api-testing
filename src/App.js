@@ -6,10 +6,14 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <CasesContainer />
-    </div>
+    <Router history={history}>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/" exact component={CasesContainer} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
