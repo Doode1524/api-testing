@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     color: "white",
-    fontSize: 17,
-    fontWeight: 500,
+    fontSize: 16,
+    fontWeight: 400,
     marginLeft: 40,
   },
 }));
