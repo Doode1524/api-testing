@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import CasesList from '../components/CasesList'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
+import { getCases } from '../actions'
 
 const Cases = () => {
   const [cases, setCases] = useState([]);
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    getCases();
+    dispatchGetCases();
   }, []);
 
-  const getCases = () => {
-    fetch("https://covid-api.mmediagroup.fr/v1/cases")
-      .then((res) => res.json())
-      .then((data) => {
-        let countries = Object.entries(data).map((country) => ({
-          [country[0]]: country[1].All,
-        }));
-        setCases(countries);
-      });
+  const dispatchGetCases = () => {
+    dispatch(getCases())
+
+    // fetch("https://covid-api.mmediagroup.fr/v1/cases")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     let countries = Object.entries(data).map((country) => ({
+    //       [country[0]]: country[1].All,
+    //     }));
+    //     setCases(countries);
+    //   });
   };
   // console.log(cases);
 
