@@ -1,17 +1,22 @@
 import React, { useState, useEffect } from "react";
-import CasesList from "../components/CasesList";
+import VaccineList from "../components/VaccineList";
 import { connect, useDispatch } from "react-redux";
-import { getCases } from "../actions";
+import { getCases, getVaccines } from "../actions";
 
 const Vaccines = (props) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatchGetCases();
+    dispatchGetVaccines();
   }, []);
 
   const dispatchGetCases = () => {
     dispatch(getCases());
+  };
+  
+  const dispatchGetVaccines = () => {
+    dispatch(getVaccines());
   };
 
   if (props.cases.length === 0) {
@@ -20,7 +25,7 @@ const Vaccines = (props) => {
 
   return (
     <div>
-      <CasesList cases={props.cases} />
+      <VaccineList cases={props.cases} vaccines={props.vaccines} />
     </div>
   );
 };
@@ -28,6 +33,7 @@ const Vaccines = (props) => {
 const mapStateToProps = (state) => {
   return {
     cases: state.cases,
+    vaccines: state.vaccines
   };
 };
 

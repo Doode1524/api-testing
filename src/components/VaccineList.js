@@ -44,7 +44,7 @@ const useStyles = makeStyles({
   },
 });
 
-const CasesList = (props) => {
+const VaccineList = (props) => {
   const classes = useStyles();
   return (
     <TableContainer component={Paper}>
@@ -52,12 +52,12 @@ const CasesList = (props) => {
         <TableHead>
           <TableRow>
             <StyledTableCell>Country</StyledTableCell>
-            <StyledTableCell>Confirmed</StyledTableCell>
-            <StyledTableCell>Recovered</StyledTableCell>
-            <StyledTableCell>Deaths</StyledTableCell>
+            <StyledTableCell>Doses Given</StyledTableCell>
+            <StyledTableCell>Partially Vaccinated</StyledTableCell>
+            <StyledTableCell>Fully Vaccinated</StyledTableCell>
             <StyledTableCell>Population</StyledTableCell>
-            <StyledTableCell>Cases/1Mil</StyledTableCell>
-            <StyledTableCell>Deaths/1Mil</StyledTableCell>
+            <StyledTableCell>Doses/1Mil</StyledTableCell>
+            <StyledTableCell>Fully Vaccinated/1Mil</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -121,4 +121,4 @@ const CasesList = (props) => {
   );
 };
 
-export default CasesList;
+export default VaccineList;

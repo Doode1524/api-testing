@@ -1,10 +1,12 @@
-import { GET_CASES } from "../actions/types";
+import { GET_CASES, GET_VACCINES } from "../actions/types";
 
-const INITIAL_STATE = { cases: [] };
+const INITIAL_STATE = { cases: [], vaccines: [] };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case GET_CASES:
+      return { ...state, cases: action.payload };
+    case GET_VACCINES:
       return { ...state, cases: action.payload };
     default:
       return state;
