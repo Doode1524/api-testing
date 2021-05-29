@@ -4,6 +4,7 @@ import { connect, useDispatch } from "react-redux";
 import { getCases } from "../actions";
 
 const Cases = (props) => {
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
